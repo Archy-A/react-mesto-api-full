@@ -1,0 +1,20 @@
+.element__like_pressed {
+  margin: 0;
+  padding: 0;
+  min-width: 22px;
+  min-height: 19px;
+  background-image: url("../../../../images/LikeBlack.svg");
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  outline: none;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  margin-bottom: 3px;
+}
+
+.element__like_pressed:hover {
+  opacity: 0.5;
+}

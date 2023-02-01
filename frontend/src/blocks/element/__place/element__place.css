@@ -1,0 +1,15 @@
+.element__place {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  justify-items: center;
+  position: relative;
+  background-color: white;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 21px;
+  padding-right: 20px;
+  max-width: 241px;
+}

@@ -1,0 +1,10 @@
+.popup-tooltip {
+    background: rgba(0,0,0,.5);
+  }
+  
+  @media screen and (max-width: 700px) {
+    .popup-tooltip {
+      min-width: 100px;
+      }
+    }
+  

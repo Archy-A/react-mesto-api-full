@@ -1,0 +1,9 @@
+.popup-edit {
+  background: rgba(0,0,0,.5);
+}
+
+@media screen and (max-width: 700px) {
+  .popup-edit {
+    min-width: 100px;
+    }
+  }

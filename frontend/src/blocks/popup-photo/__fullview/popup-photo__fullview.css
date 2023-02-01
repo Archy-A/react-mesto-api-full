@@ -1,0 +1,17 @@
+.popup-photo__fullview {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  object-fit: contain;
+  padding-right: 40px;
+  overflow: hidden;
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+@media screen and (max-width: 700px) {
+  .popup-photo__fullview {
+    padding-right: 0;
+    min-width: 100px;
+    }
+  }

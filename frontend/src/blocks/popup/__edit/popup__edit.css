@@ -1,0 +1,20 @@
+.popup__edit {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 9px;
+  border: none;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.4);
+}
+
+.popup__edit:last-of-type {
+  margin-top: 18px;
+}
+
+.popup__edit:focus {
+  outline: none;
+ }

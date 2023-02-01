@@ -1,0 +1,28 @@
+.popup-photo__name {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  min-height: 15px;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 10px;
+  max-width: 700px;
+}
+
+@media screen and (max-width: 1000px) {
+  .popup-photo__name {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .popup-photo__name {
+    max-width: 200px;
+  }
+}

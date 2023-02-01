@@ -1,0 +1,29 @@
+.header__login {
+    all: unset;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    color: #A9A9A9;
+    margin: 0;
+    padding-top: 0;
+    max-width: 120px;
+    max-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 25px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+
+    /* border: 1px rgb(235, 14, 14) solid; */
+    }
+
+.header__login:hover {
+    opacity: 0.6;
+      }
+  

@@ -1,0 +1,18 @@
+.header__email {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+    padding-top: 0;
+    max-width: 300px;
+    min-height: 33px;
+    color: rgb(255, 255, 255);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    /* border: 1px rgb(235, 14, 14) solid; */
+    }
+  

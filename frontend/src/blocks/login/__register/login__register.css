@@ -1,0 +1,24 @@
+.login__register {
+    min-width: 358px;
+    min-height: 50px;
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgb(4, 0, 0);
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    margin-top: 216px;
+    margin-bottom: 0px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+  }
+
+  .login__register:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
