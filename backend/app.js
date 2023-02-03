@@ -33,18 +33,8 @@ app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Headers', requestHeaders);
     res.end();
   }
+  next();
 });
-
-// app.use(function(req, res, next) {
-//   const { method } = req;
-//   const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
-//   const requestHeaders = req.headers['access-control-request-headers'];
-//   const { origin } = req.headers;
-//   res.header('Access-Control-Allow-Origin', "*");
-//   res.status(200);
-//   console.log(' =================== res.header = ', res.header)
-//   next();
-// });
 
 app.use(requestLogger);
 
