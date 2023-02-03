@@ -4,6 +4,7 @@ const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
 const auth = require('./middlewares/auth');
 const Constants = require('./utils/constants');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -32,6 +33,8 @@ app.use(function(req, res, next) {
   }
   next();
 });
+
+app.use(requestLogger);
 
 const signup = require('./routes/signup');
 
@@ -70,6 +73,8 @@ app.use('/cards', cardsRouter);
 const unexistRouter = require('./routes/unexist');
 
 app.use('/', unexistRouter);
+
+app.use(errorLogger);
 
 app.use(errors());
 app.use((err, req, res, next) => {
