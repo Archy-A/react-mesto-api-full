@@ -13,33 +13,23 @@ app.use(express.json());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb2');
 
-
-// app.use(function(req, res, next) {
-  // const { method } = req;
-  // const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
-  // const requestHeaders = req.headers['access-control-request-headers'];
-  // if (method === 'OPTIONS') {
-  //     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-  //     res.header('Access-Control-Allow-Headers', requestHeaders);
-  //     return res.end();
-  // }
-
 const allowedCors = [
     'https://testdeploy.nomoredomainsclub.ru',
     'http://testdeploy.nomoredomainsclub.ru',
     'localhost:3000'
   ];
-
 app.use(function(req, res, next) {
   const { origin } = req.headers;
   const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
   const requestHeaders = req.headers['access-control-request-headers'];
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
+  }
+  if (metho === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
     res.header('Access-Control-Allow-Headers', requestHeaders);
+    res.end();
   }
-  next();
 });
 
 // app.use(function(req, res, next) {
