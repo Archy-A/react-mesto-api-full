@@ -12,6 +12,19 @@ app.use(express.json());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb2');
 
+const allowedCors = [
+  'https://testdeploy.nomoredomainsclub.ru',
+  'http://testdeploy.nomoredomainsclub.ru',
+  'localhost:3000'
+];
+app.use(function(req, res, next) {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  next();
+});
+
 const signup = require('./routes/signup');
 
 app.use('/signup', celebrate({
