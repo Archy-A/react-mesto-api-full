@@ -13,24 +13,34 @@ app.use(express.json());
 
 mongoose.connect('mongodb://127.0.0.1/mestodb2');
 
-const allowedCors = [
-  'https://testdeploy.nomoredomainsclub.ru',
-  'http://testdeploy.nomoredomainsclub.ru',
-  'localhost:3000'
-];
+// const allowedCors = [
+//   'https://testdeploy.nomoredomainsclub.ru',
+//   'http://testdeploy.nomoredomainsclub.ru',
+//   'localhost:3000'
+// ];
+// app.use(function(req, res, next) {
+//   const { method } = req;
+//   const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+//   const requestHeaders = req.headers['access-control-request-headers'];
+//   if (method === 'OPTIONS') {
+//       res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+//       res.header('Access-Control-Allow-Headers', requestHeaders);
+//       return res.end();
+//   }
+//   const { origin } = req.headers;
+//   if (allowedCors.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//   }
+//   next();
+// });
 app.use(function(req, res, next) {
   const { method } = req;
   const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
   const requestHeaders = req.headers['access-control-request-headers'];
-  if (method === 'OPTIONS') {
-      res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-      res.header('Access-Control-Allow-Headers', requestHeaders);
-      return res.end();
-  }
   const { origin } = req.headers;
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
+  res.header('Access-Control-Allow-Origin', "*");
+  res.status(200);
+  console.log(' =================== res.header = ', res.header)
   next();
 });
 
