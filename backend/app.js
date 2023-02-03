@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
   }
-  next(err);
+  next();
 });
 
 app.use(requestLogger);
