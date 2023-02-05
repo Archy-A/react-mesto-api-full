@@ -69,6 +69,7 @@ exports.likeCard = (req, res, next) => {
       if (card) {
         res.send(
           card
+          //
         //   {
         //   name: card.name,
         //   link: card.link,
