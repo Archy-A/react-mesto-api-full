@@ -15,12 +15,15 @@ exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner })
     .then((card) => {
-      res.send({
-        name: card.name,
-        link: card.link,
-        owner: card.owner,
-        _id: card._id,
-      });
+      res.send(
+        cards
+      //   {
+      //   name: card.name,
+      //   link: card.link,
+      //   owner: card.owner,
+      //   _id: card._id,
+      // }
+      );
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {
@@ -39,12 +42,15 @@ exports.deleteCard = async (req, res, next) => {
       next(new NotFoundError(Constants.CARD_NOT_EXIST));
     } else if (cardb.owner.valueOf() === owner) {
       Card.findByIdAndRemove(req.params.id).then((card) => {
-        res.send({
-          name: card.name,
-          link: card.link,
-          owner: card.owner,
-          _id: card._id,
-        });
+        res.send(
+          cards
+        //   {
+        //   name: card.name,
+        //   link: card.link,
+        //   owner: card.owner,
+        //   _id: card._id,
+        // }
+        );
       });
     } else {
       next(new OwnerError(Constants.OWNER_WRONG));
@@ -99,12 +105,15 @@ exports.dislikeCard = (req, res, next) => {
   )
     .then((card) => {
       if (card) {
-        res.send({
-          name: card.name,
-          link: card.link,
-          owner: card.owner,
-          _id: card._id,
-        });
+        res.send(
+          card
+        //   {
+        //   name: card.name,
+        //   link: card.link,
+        //   owner: card.owner,
+        //   _id: card._id,
+        // }
+        );
       } else {
         next(new NotFoundError(Constants.CARD_NOT_FOUND));
       }
