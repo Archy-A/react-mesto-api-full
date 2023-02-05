@@ -67,12 +67,15 @@ exports.likeCard = (req, res, next) => {
   )
     .then((card) => {
       if (card) {
-        res.send({
-          name: card.name,
-          link: card.link,
-          owner: card.owner,
-          _id: card._id,
-        });
+        res.send(
+          card
+        //   {
+        //   name: card.name,
+        //   link: card.link,
+        //   owner: card.owner,
+        //   _id: card._id,
+        // }
+        );
       } else {
         next(new NotFoundError(Constants.CARD_NOT_FOUND));
       }
