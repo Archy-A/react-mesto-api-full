@@ -6,17 +6,19 @@ const BadRequestError = require('../errors/user-id-err');
 
 exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.send(cards))
+    .then((cards) => {
+      console.log('>>>>>>>>>>>>>>>>>>  cards = ', cards)
+      res.send(cards)
+    })
     .catch(next);
 };
 
 exports.createCard = (req, res, next) => {
   const owner = req.user._id;
   const { name, link } = req.body;
-  console.log('>>>>>>>>>>>>>>>>>>  name, link, owner = ', name, link, owner)
+
   Card.create({ name, link, owner })
     .then((cards) => {
-      console.log('>>>>>>>>>>>>>>>> name, link, owner = ', name, link, owner)
       res.send(
         cards
       //   {
