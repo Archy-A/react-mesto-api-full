@@ -21,12 +21,6 @@ exports.createCard = (req, res, next) => {
     .then((cards) => {
       res.send(
         cards
-      //   {
-      //   name: card.name,
-      //   link: card.link,
-      //   owner: card.owner,
-      //   _id: card._id,
-      // }
       );
     })
     .catch((e) => {
@@ -48,12 +42,6 @@ exports.deleteCard = async (req, res, next) => {
       Card.findByIdAndRemove(req.params.id).then((cards) => {
         res.send(
           cards
-        //   {
-        //   name: card.name,
-        //   link: card.link,
-        //   owner: card.owner,
-        //   _id: card._id,
-        // }
         );
       });
     } else {
@@ -79,13 +67,6 @@ exports.likeCard = (req, res, next) => {
       if (card) {
         res.send(
           card
-          //
-        //   {
-        //   name: card.name,
-        //   link: card.link,
-        //   owner: card.owner,
-        //   _id: card._id,
-        // }
         );
       } else {
         next(new NotFoundError(Constants.CARD_NOT_FOUND));
@@ -111,12 +92,6 @@ exports.dislikeCard = (req, res, next) => {
       if (card) {
         res.send(
           card
-        //   {
-        //   name: card.name,
-        //   link: card.link,
-        //   owner: card.owner,
-        //   _id: card._id,
-        // }
         );
       } else {
         next(new NotFoundError(Constants.CARD_NOT_FOUND));
