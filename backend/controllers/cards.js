@@ -13,16 +13,17 @@ exports.getCards = (req, res, next) => {
 exports.createCard = (req, res, next) => {
   const owner = req.user._id;
   const { name, link } = req.body;
+  console.log('name, link, owner = ', name, link, owner)
   Card.create({ name, link, owner })
     .then((card) => {
       res.send(
-        cards
-      //   {
-      //   name: card.name,
-      //   link: card.link,
-      //   owner: card.owner,
-      //   _id: card._id,
-      // }
+        // cards
+        {
+        name: card.name,
+        link: card.link,
+        owner: card.owner,
+        _id: card._id,
+      }
       );
     })
     .catch((e) => {
