@@ -15,6 +15,7 @@ module.exports = (req, res, next) => {
   const token = extractBearerToken(authorization);
   let payload;
   try {
+    console.log('=============================================== NODE_ENV = ', NODE_ENV)
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret');
     req.user = payload;
     next();
