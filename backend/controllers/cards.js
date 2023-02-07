@@ -22,13 +22,13 @@ exports.createCard = (req, res, next) => {
         cards
       );
     })
-    .catch((e) => {
-      if (e.name === 'ValidationError') {
-        next(new BadRequestError(Constants.HTTP_BAD_REQUEST));
-      } else {
-        next(e);
-      }
-    });
+    // .catch((e) => {
+    //   if (e.name === 'ValidationError') {
+    //     next(new BadRequestError(Constants.HTTP_BAD_REQUEST));
+    //   } else {
+    //     next(e);
+    //   }
+    // });
 };
 
 exports.deleteCard = async (req, res, next) => {
