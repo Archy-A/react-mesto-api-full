@@ -13,13 +13,19 @@ const app = express();
 
 app.use(express.json());
 
-// mongoose.connect('mongodb://127.0.0.1/mestodb2');
-mongoose.connect(`mongodb://${MONGODBIP}`);
+mongoose.connect('mongodb://127.0.0.1/mestodb2');
+
+console.log('MONGODBIP = ', MONGODBIP)
+
+// mongoose.connect(`mongodb://${MONGODBIP}`);
+//
+
 
 const allowedCors = [
     'https://testdeploy.nomoredomainsclub.ru',
     'http://testdeploy.nomoredomainsclub.ru',
-    'localhost:3000'
+    'http://localhost:3000',
+    'https://localhost:3000'
   ];
 
 app.use(function(req, res, next) {
