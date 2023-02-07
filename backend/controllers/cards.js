@@ -23,13 +23,11 @@ exports.createCard = (req, res, next) => {
       );
     })
     .catch((e) => {
-      next(e);
-
-      // if (e.name === 'ValidationError') {
-      //   next(new BadRequestError(Constants.HTTP_BAD_REQUEST));
-      // } else {
-      //   next(e);
-      // }
+      if (e.name === 'ValidationError') {
+        next(new BadRequestError(Constants.HTTP_BAD_REQUEST));
+      } else {
+        next(e);
+      }
     });
 };
 
