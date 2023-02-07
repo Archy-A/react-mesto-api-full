@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
 const auth = require('./middlewares/auth');
+const errorCatcher = require('./middlewares/main-error-catcher');
 const Constants = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -88,18 +89,21 @@ app.use('/', unexistRouter);
 app.use(errorLogger);
 
 app.use(errors());
-app.use((err, req, res, next) => {
-  console.log('error = ', err);
-  const { statusCode = 500, message } = err;
-  res
-    .status(statusCode)
-    .send({
-      message: statusCode === 500
-        ? 'На сервере произошла какая-то ошибка, ..........................'
-        : message,
-    });
-  next();
-});
+
+app.use(errorCatcher);
+
+// app.use((err, req, res, next) => {
+//   console.log('error = ', err);
+//   const { statusCode = 500, message } = err;
+//   res
+//     .status(statusCode)
+//     .send({
+//       message: statusCode === 500
+//         ? 'На сервере произошла какая-то ошибка, ..........................'
+//         : message,
+//     });
+//   next();
+// });
 
 app.listen(PORT, () => {
   console.log('--------------------------');
