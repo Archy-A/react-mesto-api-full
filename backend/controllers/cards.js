@@ -7,7 +7,6 @@ const BadRequestError = require('../errors/user-id-err');
 exports.getCards = (req, res, next) => {
   Card.find({})
     .then((cards) => {
-      console.log('>>>>>>>>>>>>>>>>>>  cards = ', cards)
       res.send(cards)
     })
     .catch(next);
