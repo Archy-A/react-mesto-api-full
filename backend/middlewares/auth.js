@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const UserPassError = require('../errors/user-pass-err');
 const Constants = require('../utils/constants');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const extractBearerToken = function (header) {

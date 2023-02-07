@@ -7,7 +7,7 @@ const BadRequestError = require('../errors/user-id-err');
 exports.getCards = (req, res, next) => {
   Card.find({})
     .then((cards) => {
-      res.send(cards)
+      res.send(cards);
     })
     .catch(next);
 };
@@ -18,9 +18,7 @@ exports.createCard = (req, res, next) => {
 
   Card.create({ name, link, owner })
     .then((cards) => {
-      res.send(
-        cards
-      );
+      res.send(cards);
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {
@@ -39,9 +37,7 @@ exports.deleteCard = async (req, res, next) => {
       next(new NotFoundError(Constants.CARD_NOT_EXIST));
     } else if (cardb.owner.valueOf() === owner) {
       Card.findByIdAndRemove(req.params.id).then((cards) => {
-        res.send(
-          cards
-        );
+        res.send(cards);
       });
     } else {
       next(new OwnerError(Constants.OWNER_WRONG));
@@ -64,9 +60,7 @@ exports.likeCard = (req, res, next) => {
   )
     .then((card) => {
       if (card) {
-        res.send(
-          card
-        );
+        res.send(card);
       } else {
         next(new NotFoundError(Constants.CARD_NOT_FOUND));
       }
@@ -89,9 +83,7 @@ exports.dislikeCard = (req, res, next) => {
   )
     .then((card) => {
       if (card) {
-        res.send(
-          card
-        );
+        res.send(card);
       } else {
         next(new NotFoundError(Constants.CARD_NOT_FOUND));
       }

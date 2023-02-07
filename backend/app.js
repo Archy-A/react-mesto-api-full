@@ -17,16 +17,16 @@ app.use(express.json());
 mongoose.connect(`mongodb://${MONGODBIP}`);
 
 const allowedCors = [
-    'https://testdeploy.nomoredomainsclub.ru',
-    'http://testdeploy.nomoredomainsclub.ru',
-    'http://localhost:3000',
-    'https://localhost:3000'
-  ];
+  'https://testdeploy.nomoredomainsclub.ru',
+  'http://testdeploy.nomoredomainsclub.ru',
+  'http://localhost:3000',
+  'https://localhost:3000',
+];
 
-app.use(function(req, res, next) {
-  const { method } = req
+app.use((req, res, next) => {
+  const { method } = req;
   const { origin } = req.headers;
-  const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
   const requestHeaders = req.headers['access-control-request-headers'];
 
   if (allowedCors.includes(origin)) {
@@ -91,19 +91,6 @@ app.use(errorLogger);
 app.use(errors());
 
 app.use(errorCatcher);
-
-// app.use((err, req, res, next) => {
-//   console.log('error = ', err);
-//   const { statusCode = 500, message } = err;
-//   res
-//     .status(statusCode)
-//     .send({
-//       message: statusCode === 500
-//         ? 'На сервере произошла какая-то ошибка, ..........................'
-//         : message,
-//     });
-//   next();
-// });
 
 app.listen(PORT, () => {
   console.log('--------------------------');
