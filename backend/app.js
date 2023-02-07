@@ -13,8 +13,7 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1/mestodb2');
-
+// mongoose.connect('mongodb://127.0.0.1/mestodb2');
 // console.log('MONGODBIP = ', MONGODBIP)
 
 mongoose.connect(`mongodb://${MONGODBIP}`);
