@@ -5,7 +5,7 @@ const NotFoundError = require('../errors/not-found-err');
 const BadRequestError = require('../errors/user-id-err');
 
 exports.getCards = (req, res, next) => {
-  Card.find({1:1})
+  Card.find({})
     .then((cards) => {
       res.send(cards)
     })
